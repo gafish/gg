@@ -39,9 +39,8 @@ a {
   z-index: 10;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  min-height: 68px;
+  justify-content: flex-start;
+  min-height: 60px;
   padding: 0 max(22px, calc((100vw - 1160px) / 2));
   border-bottom: 1px solid rgba(215, 228, 223, 0.9);
   background: rgba(247, 249, 246, 0.92);
@@ -56,16 +55,13 @@ a {
   text-decoration: none;
 }
 
-.brand-mark {
-  display: inline-grid;
+.brand-avatar {
+  display: block;
   width: 34px;
   height: 34px;
-  place-items: center;
-  border-radius: 8px;
-  color: #fff;
-  background: var(--accent);
-  font-size: 0.82rem;
-  letter-spacing: 0;
+  border: 2px solid rgba(15, 138, 115, 0.18);
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .nav {
@@ -93,8 +89,12 @@ main {
 }
 
 .hero,
+.deal-hero,
+.detail-hero,
 .section,
 .cta-section,
+.order-section,
+.conversion-strip,
 .footer {
   width: min(1160px, calc(100% - 40px));
   margin: 0 auto;
@@ -109,8 +109,27 @@ main {
   padding: 72px 0 78px;
 }
 
+.deal-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.8fr);
+  gap: 38px;
+  align-items: center;
+  min-height: calc(100vh - 60px);
+  padding: 42px 0 36px;
+}
+
+.detail-hero {
+  max-width: 860px;
+  min-height: 430px;
+  padding: 78px 0 52px;
+}
+
 .hero-copy {
   max-width: 720px;
+}
+
+.deal-copy {
+  max-width: 740px;
 }
 
 .eyebrow {
@@ -131,7 +150,7 @@ p {
 
 h1 {
   max-width: 760px;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   font-size: clamp(3.2rem, 8vw, 6.8rem);
   line-height: 0.96;
   letter-spacing: 0;
@@ -230,6 +249,30 @@ details p {
   font-weight: 750;
 }
 
+.trust-list.compact {
+  max-width: 520px;
+}
+
+.trust-list.compact li {
+  flex: 1 1 150px;
+  text-align: center;
+}
+
+.title-tags {
+  flex-wrap: nowrap;
+  gap: 6px;
+  max-width: none;
+  margin: 0 0 30px;
+}
+
+.title-tags li {
+  flex: 0 1 auto;
+  padding: 4px 7px;
+  font-size: 0.74rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
 .hero-panel {
   display: grid;
   gap: 14px;
@@ -238,6 +281,55 @@ details p {
   border-radius: 8px;
   background: var(--surface);
   box-shadow: var(--shadow);
+}
+
+.deal-card {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.deal-card h2 {
+  margin-bottom: 22px;
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+}
+
+.deal-options {
+  display: grid;
+  gap: 14px;
+}
+
+.option-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px 16px;
+  align-items: start;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.option-card.recommended {
+  border-color: rgba(15, 138, 115, 0.42);
+  background: var(--accent-soft);
+}
+
+.option-card h3,
+.option-card p {
+  margin-bottom: 0;
+}
+
+.option-card strong {
+  color: var(--ink);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.option-card > p {
+  grid-column: 1 / -1;
 }
 
 .sim-card {
@@ -309,6 +401,36 @@ details p {
 .section {
   padding: 78px 0;
   border-top: 1px solid var(--line);
+}
+
+.conversion-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding: 0 0 54px;
+}
+
+.conversion-strip article {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.conversion-strip span {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--accent-dark);
+  font-weight: 900;
+}
+
+.conversion-strip h3,
+.conversion-strip p {
+  margin-bottom: 0;
+}
+
+.conversion-strip h3 {
+  margin-bottom: 8px;
 }
 
 .section-head {
@@ -462,7 +584,8 @@ details p {
   margin: 12px 0 0;
 }
 
-.cta-section {
+.cta-section,
+.order-section {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 300px;
   gap: 28px;
@@ -474,12 +597,20 @@ details p {
   background: linear-gradient(135deg, #0f8a73, #183a33);
 }
 
+.order-section {
+  margin-top: 0;
+  margin-bottom: 34px;
+}
+
 .cta-section .eyebrow,
-.cta-section p {
+.cta-section p,
+.order-section .eyebrow,
+.order-section p {
   color: rgba(255, 255, 255, 0.82);
 }
 
-.cta-section h2 {
+.cta-section h2,
+.order-section h2 {
   margin-bottom: 14px;
 }
 
@@ -520,7 +651,7 @@ details p {
 
 @media (max-width: 920px) {
   .site-header {
-    align-items: flex-start;
+    align-items: center;
     min-height: auto;
     padding: 14px 20px;
   }
@@ -531,16 +662,18 @@ details p {
     padding-bottom: 2px;
   }
 
-  .hero {
+  .hero,
+  .deal-hero {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 24px;
     min-height: auto;
-    padding-top: 54px;
+    padding-top: 36px;
   }
 
   .feature-grid,
   .use-list,
-  .steps {
+  .steps,
+  .conversion-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -564,7 +697,8 @@ details p {
     padding-bottom: 18px;
   }
 
-  .cta-section {
+  .cta-section,
+  .order-section {
     grid-template-columns: 1fr;
   }
 }
@@ -572,8 +706,6 @@ details p {
 @media (max-width: 620px) {
   .site-header {
     position: static;
-    display: grid;
-    gap: 12px;
   }
 
   .nav {
@@ -581,24 +713,46 @@ details p {
   }
 
   .hero,
+  .deal-hero,
+  .detail-hero,
   .section,
   .cta-section,
+  .order-section,
+  .conversion-strip,
   .footer {
     width: 100%;
     padding-left: 14px;
     padding-right: 14px;
   }
 
-  .hero {
+  .hero,
+  .deal-hero {
+    padding-top: 28px;
+    padding-bottom: 42px;
+  }
+
+  .detail-hero {
+    min-height: auto;
     padding-top: 42px;
-    padding-bottom: 58px;
+    padding-bottom: 44px;
   }
 
   h1 {
     max-width: 100%;
     font-size: 1.75rem;
     line-height: 1.12;
+    margin-bottom: 22px;
     word-break: break-all;
+  }
+
+  .title-tags {
+    gap: 5px;
+    margin-bottom: 24px;
+  }
+
+  .title-tags li {
+    padding: 4px 6px;
+    font-size: 0.7rem;
   }
 
   h2 {
@@ -628,7 +782,8 @@ details p {
   .feature-grid,
   .price-grid,
   .use-list,
-  .steps {
+  .steps,
+  .conversion-strip {
     grid-template-columns: 1fr;
   }
 
@@ -641,7 +796,13 @@ details p {
     font-size: 2.5rem;
   }
 
-  .cta-section {
+  .deal-card,
+  .cta-section,
+  .order-section {
     padding: 24px;
+  }
+
+  .option-card {
+    grid-template-columns: 1fr;
   }
 }
