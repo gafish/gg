@@ -388,7 +388,7 @@ h1 {
 }
 
 .contact-list a,
-.contact-list div {
+.contact-list button {
   display: flex;
   min-height: 52px;
   align-items: center;
@@ -399,7 +399,17 @@ h1 {
   border-radius: 14px;
   color: var(--ink);
   background: var(--soft-2);
+  font: inherit;
   text-decoration: none;
+}
+
+.contact-list button {
+  cursor: pointer;
+}
+
+.contact-list button:focus-visible {
+  outline: 3px solid rgba(16, 144, 111, 0.35);
+  outline-offset: 3px;
 }
 
 .contact-list span {
@@ -413,6 +423,34 @@ h1 {
   font-size: 0.98rem;
   overflow-wrap: anywhere;
   text-align: right;
+}
+
+.wechat-preview {
+  width: min(100vw - 32px, 360px);
+  padding: 44px 18px 18px;
+  border: 0;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.38);
+}
+
+.wechat-preview::backdrop {
+  background: rgba(7, 33, 25, 0.72);
+}
+
+.wechat-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.wechat-preview p {
+  margin: 12px 0 0;
+  color: var(--green-dark);
+  font-weight: 850;
+  text-align: center;
 }
 
 .guide-links strong {

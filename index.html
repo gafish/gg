@@ -104,10 +104,10 @@
             <span>𝕏</span>
             <strong>MrGafish</strong>
           </a>
-          <div>
+          <button class="wechat-trigger" type="button" aria-haspopup="dialog">
             <span>微信</span>
             <strong>mr_gafish</strong>
-          </div>
+          </button>
           <a href="https://t.me/+HYbHZJE4GydhNjFl" target="_blank" rel="noopener">
             <span>电报群</span>
             <strong>加入群聊</strong>
@@ -141,6 +141,31 @@
       <footer class="site-footer">
         <p>© 鱼哥 giffgaff · 具体资费、漫游和保号规则以 giffgaff 官方最新说明为准。</p>
       </footer>
+
+      <dialog class="wechat-preview" aria-label="微信二维码">
+        <button class="preview-close" type="button" aria-label="关闭微信二维码">×</button>
+        <img src="./assets/wechat.jpg" alt="鱼哥微信二维码">
+        <p>微信：mr_gafish</p>
+      </dialog>
     </main>
+    <script>
+      const wechatPreview = document.querySelector(".wechat-preview");
+      const wechatTrigger = document.querySelector(".wechat-trigger");
+      const wechatClose = wechatPreview.querySelector(".preview-close");
+
+      wechatTrigger.addEventListener("click", () => {
+        wechatPreview.showModal();
+      });
+
+      wechatClose.addEventListener("click", () => {
+        wechatPreview.close();
+      });
+
+      wechatPreview.addEventListener("click", (event) => {
+        if (event.target === wechatPreview) {
+          wechatPreview.close();
+        }
+      });
+    </script>
   </body>
 </html>
