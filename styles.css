@@ -414,6 +414,10 @@ h1 {
   cursor: pointer;
 }
 
+.contact-list .wechat-trigger {
+  display: none;
+}
+
 .contact-list button:focus-visible {
   outline: 3px solid rgba(16, 144, 111, 0.35);
   outline-offset: 3px;
