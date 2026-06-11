@@ -331,8 +331,8 @@ h1 {
 
 .qr-image {
   display: block;
-  width: 180px;
-  height: 180px;
+  width: min(220px, 100%);
+  height: auto;
   border: 1px solid var(--line);
   border-radius: 12px;
   background: #fff;
@@ -412,10 +412,6 @@ h1 {
 
 .contact-list button {
   cursor: pointer;
-}
-
-.contact-list .wechat-trigger {
-  display: none;
 }
 
 .contact-list button:focus-visible {
