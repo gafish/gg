@@ -42,34 +42,6 @@ a {
   padding: 14px 14px 36px;
 }
 
-.stock-out .app-shell {
-  display: grid;
-  place-items: center;
-  padding: 24px;
-}
-
-.stock-out .app-shell > :not(.stock-notice) {
-  display: none;
-}
-
-.stock-notice {
-  width: 100%;
-  padding: 28px 22px;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: var(--shadow);
-  text-align: center;
-}
-
-.stock-notice p {
-  margin: 0;
-  color: var(--green-dark);
-  font-size: 1.35rem;
-  font-weight: 900;
-  line-height: 1.4;
-}
-
 .topbar {
   padding: 6px 0 14px;
 }
